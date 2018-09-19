@@ -1,0 +1,29 @@
+{% load collab_tags i18n space_tags %}
+
+
+{% for plugin in space_plugins %}
+    {% if plugin|is_active:space %}
+		<li class="{% if plugin_selected == plugin.name %}active{% endif %}">
+			<a href="{{ plugin|plugin_url:space }}">{{ plugin.get_icon }}
+			<span class="desc {% if not is_mobile %}hidden-md hidden-sm hidden-xs{% endif %}">{{ plugin.title }}</span></a>
+		</li>
+	{% endif %} 
+{% endfor %}
+{% if user|is_manager %}
+	<li class="{% if plugin_selected == 'settings' %}active{% endif %}">
+    <a href="{% url 'spaces_settings:settings' %}">
+	<span class="icon icon-cog"></span>
+	<span class="desc {% if not is_mobile %}hidden-md hidden-sm hidden-xs{% endif %}">{% trans 'Settings' %}</span>
+	</a>
+	</li>
+{% endif %}
+
+
+{# search #}
+<li class="{% if plugin_selected == 'search' %}active{% endif %}">
+<a href="{% url 'spaces_search:search' %}">
+<span class="icon icon-magnifying-glass"></span>
+<span class="desc {% if not is_mobile %}hidden-md hidden-sm hidden-xs{% endif %}">{% trans 'Search' %}</span>
+</a>
+</li>
+

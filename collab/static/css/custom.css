@@ -1,0 +1,369 @@
+/* navbar */
+
+button.navbar-btn-avitar {
+	color: rgba(255, 255, 255, 1.0);
+}
+
+button.navbar-btn-avitar:hover {
+	color:rgba(235, 235, 235, 1.0)
+}
+
+body.space ul.navbar-nav li a span.icon {
+	font-size:200%;
+	vertical-align:middle;
+}
+
+body.space ul.navbar-nav li a {
+	padding-bottom: 12px;
+}
+
+/* login */
+.app-login-form .app-brand {
+    width: initial;
+}
+
+/* profile */
+
+body.collab_profile .panel-heading {
+	background: linear-gradient(to right, #3097d1, #a2d6f4, #3097d1);
+}
+
+body.collab_profile .panel-profile-img {
+    width: 200px;
+    margin-top: -115px;
+    height: 200px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+    max-width: 200px;
+}
+
+#edit-profile #id_picture_current {
+    width: 200px;
+	max-width: 200px;
+	margin-bottom: 5px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    height: 200px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+
+}
+
+#edit-profile #id_picture {
+    margin: 0 auto;
+    float: none;
+}
+
+#edit-profile div.form-group:first-of-type {
+	text-align:center;
+}
+
+/* spaces dashboard */
+
+ul.space-plugins {
+	font-size:120%;
+}
+
+ul.space-plugins li a span.icon {
+	font-size:170%;
+	vertical-align:middle;
+	padding-right: 10px;
+}
+
+@media screen and (min-width: 48em) {
+.navbar-nav li.active span.desc:after{
+	position: absolute;
+    bottom: -1;
+    left: 50%;
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f5f8fa;
+}
+}
+
+.img-profile {
+    width: 60px;
+    max-width: 60px;
+    height: 60px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.img-profile-sm {
+	width: 40px;
+    max-width: 40px;
+	height: 40px;
+}
+
+.img-profile-xs {
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+}
+
+/* spaces members */
+
+body.members .panel-profile .panel-heading {
+    background-color: #3097d1;
+	background: radial-gradient(circle at bottom, #a2d6f4, #3097d1);
+}
+
+body.members .panel-profile .config-slider-outer {
+	position:relative;
+}
+
+body.members .panel-profile .config-slider-inner {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+}
+
+body.members .panel-profile .config-slider-inner .panel-title {
+    border-bottom: 1px solid lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+body.members .panel-profile-img,
+body.messages .panel-profile-img {
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+
+
+/* spaces files */
+/*
+a[data-toggle="collapse"] span.icon {
+	transition-duration: 300ms;
+}
+*/
+
+/* collapse transition not working with tables, so we disable the delay. (0ms won't work.) */
+body.files table.table tr{
+	transition-duration:10ms;
+}
+
+/* spaces blog */
+
+body.blog .post-bg.img {
+	background-size: cover;
+	position:relative;
+	margin-top:22px;
+}
+
+body.blog .post-bg.img .post-title {
+	height:250px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+@media (min-width: 768px) {
+  body.blog .post-bg.img .post-title {
+	height: 350px;
+  }
+}
+
+body.blog .post-bg.img .post-title h2 a {
+	color: white;
+}
+
+body.blog .post-bg.img .caption-bg {
+	background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+body.blog .post-bg.img h2 {
+	padding: 10px 20px;
+	margin-bottom:0px;
+	margin-top:0px;
+
+}
+
+body.blog .post-bg.img .controls {
+	margin-top:10px;
+}
+
+/* spaces calendar */
+
+.media-list-users .list-group-item-cal {
+	padding: 0px;
+}
+
+.list-group-item-cal .media, .list-group-item-cal .media-body {
+	overflow: auto;
+}
+
+.cal-date {
+	width: 75px;
+	padding: 10px 15px;
+}
+
+.btn-cal {
+	padding: 0px 12px;
+	margin-bottom:3px;
+	border-radius: 0;
+	white-space:normal;
+}
+
+.btn-cal, .btn-cal-starts, .btn-cal-full-day, .btn-cal-ends {
+	border-radius: 0;
+	width: calc(100% - 0.7em);
+	float:right;
+	padding: 10px;
+	padding-bottom: 8px;
+	margin-bottom:0px;
+}
+
+.btn-cal-ends {
+}
+
+.btn-cal-full-day {
+}
+
+.btn-cal.btn-color-3 {
+	background-color: #a7ac93;
+	border-color: #8a916f;
+	color: white;
+}
+
+.btn-cal.btn-color-3:hover {
+	background-color: #8a916f;
+}
+
+.btn-cal.btn-color-2 {
+    background-color: #75a4c0;
+    border-color: #5790b2;
+    color: white;
+}
+
+.btn-cal.btn-color-2:hover {
+    background-color: #5790b2;
+}
+
+.btn-cal.btn-color-1 {
+    background-color: #cb7842;
+    border-color: #a95f2f;
+    color: white;
+}
+
+.btn-cal.btn-color-1:hover {
+    background-color: #a95f2f;
+}
+
+.btn-cal.btn-color-4 {
+    background-color: #9c7e7e;
+    border-color: #896969;
+    color: white;
+}
+
+.btn-cal.btn-color-4:hover {
+    background-color: #896969;
+}
+
+
+
+/* spaces_notifications */
+.panel-body.n12n {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+.n12n legend {
+	font-size: 18px;
+	margin-bottom: 11px;
+}
+
+.btn-n12n {
+	margin: 4px 4px 4px 0px;
+	cursor: initial;
+}
+
+#n12n-fields {
+	overflow: hidden; /* prevents jerky animation */
+}
+
+#n12n-fields h5 {
+	margin-top: 0px;
+}
+
+/* spaces_wiki */
+
+.overflow-ellipsis li {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* ckeditor collab plugin */
+
+.cke_dialog_ui_input_text #autocomplete {
+	padding: 5px 0px;
+}
+
+.cke_dialog_ui_input_text #autocomplete ul {
+	list-style-type: none;
+}
+
+.cke_dialog_ui_input_text #autocomplete ul li div {
+    cursor: pointer;
+}
+
+.cke_dialog_ui_input_text #autocomplete ul li:hover {
+	background-color: #eaeaea;
+}
+
+
+/* archived space */
+body.space-archived {
+	padding-bottom: 60px;
+}
+
+.navbar-archived {
+	color: white;
+}
+
+body.space-archived .btn-create,
+body.space-archived .btn-edit,
+body.space-archived .btn-delete,
+body.space-archived button[type="submit"],
+body.space-archived form a.btn,
+body.space-archived.wiki .directory-toolbar a.btn,
+body.space-archived.blog .media-body .btn-primary,
+body.space-archived.members .col-md-3 {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+/* search */
+
+.search-result-icon {
+	font-size:200%;
+	padding-top: 0.3em;
+	color: #3a596a;
+}
+
+/* messages */
+.media-list .list-group-item-slim {
+	padding: 5px 15px;
+}
+

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load i18n sekizai_tags%}
+
+{% block body_class %}space{% endblock %}
+
+{% comment %}
+{% block navbar_brand %}
+    <a class="navbar-brand" href="{% url 'spaces_dashboard:dashboard' %}">
+        {# <img src="" alt="brand"> #}
+        {{ space.name }}
+    </a>
+{% endblock %}
+{% endcomment %}
+
+{% block navbar_links %}
+	{% with is_mobile=False %}
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		        <span class="desc">{{ space }}</span> <span class="caret"></span>
+			</a>
+		    <ul class="dropdown-menu">
+			    {% include 'collab/includes/spaces_links.html' %}
+			</ul>
+			</li>
+	{% endwith %}
+{% endblock %}
+
+
+{% block navbar_links_mobile %}
+	{% with is_mobile=True %}
+    {% include 'collab/includes/spaces_links.html' %}
+	{% endwith %}
+{% endblock %}
+
+
+{% block navbar_search %}
+ {% if request.SPACE %}
+        <form class="navbar-form navbar-right app-search hidden-sm hidden-xs" role="search" action="{% url 'spaces_search:search' %}" method="post">
+			{% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" data-action="grow" placeholder="{% trans 'Search' %}"
+				name="search_terms" id="id_search_terms">
+            </div>
+        </form>
+        {% endif %}
+{% endblock %}
+
+<form action="" method="post">{% csrf_token %}
+{{ form }}
+<input type="submit" value="{% trans 'Search' %}">
+</form>

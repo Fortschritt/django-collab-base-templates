@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load i18n sekizai_tags %}
+
+{% block content %}
+
+{% addtoblock 'css' %}
+	<meta http-equiv="refresh" content="0; url=/" />
+{% endaddtoblock %}
+
+<h2>{% trans 'You are now logged out.' %}</h2>
+{% endblock %}
+

@@ -1,0 +1,143 @@
+{% load collab_tags i18n sekizai_tags staticfiles pinax_messages_tags %}
+
+
+{% addtoblock 'js' %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/toolkit.js' %}"></script>
+<script src="{% static 'js/application.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock 'css' %}
+<link href="{% static 'css/toolkit.css' %}" rel="stylesheet">
+<link href="{% static 'css/application.css' %}" rel="stylesheet">
+<link href="{% static 'css/custom.css' %}" rel="stylesheet">
+{% endaddtoblock %}
+
+
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		{% render_block 'css' %}
+	</head>
+	<title>{% block head_title %}{{ site_name }}{% endblock %}
+	</title>
+</html>
+
+<body class="with-top-navbar {% if space.archived %}space-archived{% endif %} {% block body_class %}{% endblock %}	">
+{% block messages %}
+{% if messages %}
+<div class="growl" id="app-growl">
+    {% for message in messages %}
+	<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade in" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+		{{ message }}
+	</div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock messages %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
+	<div class="container">
+		<div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+	{% block navbar_brand %}
+	<a class="navbar-brand" href="{% url 'collab_user_views:dashboard' %}">
+		<!-- <img src="" alt="brand"> -->
+		Collab
+	</a>
+	{% endblock %}
+
+	</div>
+	<div class="navbar-collapse collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav hidden-xs">
+			{% block navbar_links %}
+          <li class="active">
+            <a href="{% url 'collab_user_views:dashboard' %}">{% trans 'Dashboard' %}</a>
+          </li>
+
+			{% endblock navbar_links %}
+        </ul>
+		{% block navbar_avatar %}
+        <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+			{# APP NOTIFICATIONS #}
+			{% if unread_threads.count %}
+			  <li>
+				<a 	href="{% url 'collab_messages:inbox' %}" 
+					title="{% trans 'You have unread messages.' %}"
+					class="app-notifications"
+				>
+					<span class="icon icon-bell"></span>
+				</a>
+			  </li>
+			{% endif %}
+          <li>
+              <button class="btn btn-primary navbar-btn navbar-btn-avitar" data-toggle="popover" data-original-title="" title="">
+                <img class="img-circle" src="{% static request.user.profile.avatar %}">
+		  		  {{ request.user|nice_name }}
+              </button>
+          </li>
+        </ul>
+		{% endblock navbar_avatar %}
+		{% block navbar_search %}
+		{% endblock navbar_search %}
+        <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+		  {% block navbar_links_mobile %}
+          <li><a href="{% url 'collab_user_views:dashboard' %}">{% trans 'Dashboard' %}</a></li>
+		  {% endblock navbar_links_mobile %}
+          <li><a href="{% url 'collab_user_views:dashboard' %}" >{% trans 'My Dashboard' %}</a></li>
+		  <li><a href="{% url 'collab_messages:inbox' %}" >{% trans 'My Messages' %} {% if unread_threads.count %}<span class="badge">{{ unread_threads.count }}</span>{% endif %}</a></li>
+          <li><a href="{% url 'collab_profile:detail' request.user.pk %}" >{% trans 'My Profile' %}</a></li>
+          <li><a href="{% url 'collab_user_views:help' %}" >{% trans 'Help' %}</a></li>
+          <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+
+
+        </ul>
+
+        <ul class="nav navbar-nav hidden">
+          <li><a href="{% url 'collab_user_views:dashboard' %}" >{% trans 'My Dashboard' %}</a></li>
+		  <li><a href="{% url 'collab_messages:inbox' %}" >{% trans 'My Messages' %} {% if unread_threads.count %}<span class="badge">{{ unread_threads.count }}</span>{% endif %}</a></li>
+          <li><a href="{% url 'collab_profile:detail' request.user.pk %}" >{% trans 'My Profile' %}</a></li>
+          <li><a href="{% url 'collab_user_views:help' %}" >{% trans 'Help' %}</a></li>
+          <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+        </ul>
+      </div>
+
+</nav>
+{% endblock navbar %}
+{% block body_outer %}
+<div class="container p-t-md">
+{% block body %}
+
+{% if space.archived %}
+<nav class="navbar navbar-inverse navbar-fixed-bottom text-center navbar-archived">
+<h3>{% trans 'This space has been archived. Editing content has been disabled.' %}</h3>
+</nav>
+{% endif %}
+
+<div class="row">
+
+
+{% block content %}
+{% endblock content %}
+
+</div>
+{% endblock body %}
+</div>
+{% block custom_js %}
+{% endblock custom_js %}
+{% endblock body_outer %}
+{% render_block 'js' %}
+
+</body>
+
+</html>

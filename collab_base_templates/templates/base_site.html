@@ -81,7 +81,7 @@
 			{% endif %}
           <li>
               <button class="btn btn-primary navbar-btn navbar-btn-avitar" data-toggle="popover" data-original-title="" title="">
-                <img class="img-circle" src="{% static request.user.profile.avatar %}">
+                <img class="img-circle" src="{{ request.user.profile.avatar }}">
 		  		  {{ request.user|nice_name }}
               </button>
           </li>

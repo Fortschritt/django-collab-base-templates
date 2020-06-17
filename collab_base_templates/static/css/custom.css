@@ -362,8 +362,18 @@ body.space-archived.members .col-md-3 {
 	color: #3a596a;
 }
 
+.media-list-users .img-circle {
+    height: 42px;
+}
+
 /* messages */
 .media-list .list-group-item-slim {
 	padding: 5px 15px;
 }
 
+.media-list-conversation .media-object {
+    height: 42px;
+}
+.media-list-conversation .media-current-user .media-body-text a {
+    color: white;
+}

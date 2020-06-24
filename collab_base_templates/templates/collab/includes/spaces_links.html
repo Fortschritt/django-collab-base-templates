@@ -1,5 +1,10 @@
 {% load collab_tags i18n space_tags %}
 
+<li class="">
+    <a href="{{ space.get_absolute_url }}"><span class="icon icon-home"></span>
+    <span class="desc {% if not is_mobile %}hidden-md hidden-sm hidden-xs{% endif %}">{% trans 'Dashboard' %}</span></a>
+</li>
+
 
 {% for plugin in space_plugins %}
     {% if plugin|is_active:space %}
